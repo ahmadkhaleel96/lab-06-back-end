@@ -21,3 +21,18 @@ we used JavaScript and Node.js. we orginized our work using Trello.
 ## Credits and Collaborations
 credits to the collabrators Rashid S. 
 the class demo.
+ 
+ credits to Abdulrahman for help. 
+
+ ========================================================================
+
+ Number and name of feature: the Weather app only feature.
+
+Estimate of time needed to complete: 6 hours
+
+Start time: 2 PM
+
+Finish time: 10PM
+
+Actual time needed to complete: 5 hours
+
