@@ -42,7 +42,7 @@ server.get('/weather',(request,response)=> {
   let data = weatherData.daily.data;
   
   for(let i=0;i<data.length;i++){
-    let date = new Date(data[i].time * 1000).toString();
+    let date = new Date(data[i].time * 1000).toDateString();
     let forecast = data[i].summary ;
     new Weather(date,forecast);
 
