@@ -22,33 +22,11 @@ function Location(city, locationData){
     this.search_query = city;
 }
 server.get('/location', (request, response) => {
-    // Read the city from the user (request)
-    // find the city in geo.json
     
     const locationData = require('./data/geo.json');
     let location = new Location("lynwood", locationData);
     response.status(200).send(location);
 });
-
-// function Weather(weatherData){
-    //     this.forecast = weatherData.daily.data.summery; 
-    //     this.time = weatherData.daily.data.time;
-    //     WeatherArr.all.push(this);
-    // }
-    // server.get('/weather', (request, response) => {
-        
-        //     let arrLength =weatherData.daily.data.length;
-        //     for (let i=0; i< arrLength ; i++){
-            //         let timeValue = (new Date (weatherData.daily.data[i].time) * 1000).toString();
-            //         let forecast = weatherData.daily.data[i].summery;
-//         new Weather(timeValue);
-//         new Weather(forecast);
-//     }
-
-//     const weatherData = require('./data/darksky.json');
-//     response.status(200).send(WeatherArr.all);
-//     console.log(WeatherArr.all)
-// });
 
 function Weather(summary,time){
     this.forecast = summary,
@@ -71,6 +49,7 @@ server.get('/weather',(request,response)=> {
 
   }
   response.send(Weather.all)
+  Weather.all=[]
 
 })
 

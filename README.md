@@ -1,7 +1,7 @@
 # City exploler
 
 **Author**: Ahmad K. & Rahsid S.
-**Version**: 0.0.1
+**Version**: 0.0.2
 
 ## Overview
 The geo Demo was very helpful, we got kinda confused but Mr. Ghandy helped us with his inner peace.
@@ -13,9 +13,7 @@ we followed the demo, and the demo video.
 we used JavaScript and Node.js. we orginized our work using Trello. 
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
+1. we faced the duplication problem and we solved it by emptying the array.
 
 -->
 ## Credits and Collaborations
