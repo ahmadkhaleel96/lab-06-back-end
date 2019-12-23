@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 server.listen(PORT, () => console.log('Listening to PORT 5500'));
 
 server.get('/', (request, response) => {
-    response.status(200).send('YOU ARE MEAN!!!');
+    response.status(200).send('Welcome, i love that you love that i love that you love, my empty page hahaha.');
 });
 
 function Location(city, locationData){
@@ -54,8 +54,9 @@ server.get('/weather',(request,response)=> {
 })
 
 server.use('*', (request, response) => {
-	response.status(404).send('ALL I HAVE IS NEGATIVE THOUGHTS!!!');
+	response.status(404).send('sorry, page is not found');
 });
+
 server.use((error, request, response) => {
 	response.send(500).send(error);
 });
