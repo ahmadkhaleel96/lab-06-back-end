@@ -44,7 +44,7 @@ server.get('/weather',(request,response)=> {
   for(let i=0;i<data.length;i++){
     let date = new Date(data[i].time * 1000).toDateString();
     let forecast = data[i].summary ;
-    new Weather(date,forecast);
+    new Weather(forecast, date);
 
 
   }
