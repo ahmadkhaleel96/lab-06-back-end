@@ -12,46 +12,40 @@ const PORT = process.env.PORT;
 server.listen(PORT, () => console.log('Listening to PORT 5500'));
 
 server.get('/', (request, response) => {
-    response.status(200).send('Welcome, i love that you love that i love that you love, my empty page hahaha.');
+	response.status(200).send('Welcome, i love that you love that i love that you love, my empty page hahaha.');
 });
 
-function Location(city, locationData){
-    this.formatted_query = locationData[0].display_name;
-    this.latitude = locationData[0].lat;
-    this.longitude = locationData[0].lon;
-    this.search_query = city;
+function Location(city, locationData) {
+	this.formatted_query = locationData[0].display_name;
+	this.latitude = locationData[0].lat;
+	this.longitude = locationData[0].lon;
+	this.search_query = city;
 }
 server.get('/location', (request, response) => {
-    
-    const locationData = require('./data/geo.json');
-    let location = new Location("lynwood", locationData);
-    response.status(200).send(location);
+	const locationData = require('./data/geo.json');
+	let location = new Location('lynwood', locationData);
+	response.status(200).send(location);
 });
 
-function Weather(summary,time){
-    this.forecast = summary,
-    this.time = time;
-    Weather.all.push(this)
+function Weather(summary, time) {
+	(this.forecast = summary), (this.time = time);
+	Weather.all.push(this);
 }
 
 Weather.all = [];
 
-server.get('/weather',(request,response)=> {
+server.get('/weather', (request, response) => {
+	const weatherData = require('./data/darksky.json');
+	let data = weatherData.daily.data;
 
-    const weatherData = require('./data/darksky.json') ;
-  let data = weatherData.daily.data;
-  
-  for(let i=0;i<data.length;i++){
-    let date = new Date(data[i].time * 1000).toDateString();
-    let forecast = data[i].summary ;
-    new Weather(forecast, date);
-
-
-  }
-  response.send(Weather.all)
-  Weather.all=[]
-
-})
+	for (let i = 0; i < data.length; i++) {
+		let date = new Date(data[i].time * 1000).toDateString();
+		let forecast = data[i].summary;
+		new Weather(forecast, date);
+	}
+	response.send(Weather.all);
+	Weather.all = [];
+});
 
 server.use('*', (request, response) => {
 	response.status(404).send('sorry, page is not found');
@@ -60,5 +54,3 @@ server.use('*', (request, response) => {
 server.use((error, request, response) => {
 	response.send(500).send(error);
 });
-
-
